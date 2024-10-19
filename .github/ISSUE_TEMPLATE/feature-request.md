@@ -13,6 +13,9 @@ A clear and concise description of what the problem is. Ex. I'm always frustrate
 **Describe the solution you'd like**
 A clear and concise description of what you want to happen.
 
+**Which domain of the chess app does this feature belong to? (Flutter UI/Chess Bot/Game Database/Multiplayer)**
+A clear and concise description of which domain of the chess app this is related to.
+
 **Describe alternatives you've considered**
 A clear and concise description of any alternative solutions or features you've considered.
 
