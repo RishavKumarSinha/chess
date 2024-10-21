@@ -76,19 +76,19 @@ class _GameBoardState extends State<GameBoard> {
     newBoard[0][1] = ChessPiece(
         type: ChessPieceType.knight,
         isWhite: false,
-        imagePath: 'lib/images/bk.png');
+        imagePath: 'lib/images/bn.png');
     newBoard[0][6] = ChessPiece(
         type: ChessPieceType.knight,
         isWhite: false,
-        imagePath: 'lib/images/bk.png');
+        imagePath: 'lib/images/bn.png');
     newBoard[7][1] = ChessPiece(
         type: ChessPieceType.knight,
         isWhite: true,
-        imagePath: 'lib/images/wk.png');
+        imagePath: 'lib/images/wn.png');
     newBoard[7][6] = ChessPiece(
         type: ChessPieceType.knight,
         isWhite: true,
-        imagePath: 'lib/images/wk.png');
+        imagePath: 'lib/images/wn.png');
 
     // Place queens
     newBoard[0][3] = ChessPiece(
