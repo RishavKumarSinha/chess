@@ -1,6 +1,6 @@
 # chess
 
-A new Flutter project.
+A Flutter Chess App with Multiplayer and Chess Bot.(Under Construction)
 
 ## Getting Started
 
