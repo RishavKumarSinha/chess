@@ -35,7 +35,6 @@ class Square extends StatelessWidget {
       onTap: onTap,
       child: Container(
         color: squareColor,
-        margin: EdgeInsets.all(isValidMove ? 4 : 0),
         child: piece != null
             ? Image.asset(
                 piece!.imagePath, // Shows correct pawn image based on isWhite
