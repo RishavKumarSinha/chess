@@ -123,10 +123,20 @@ class _GameBoardState extends State<GameBoard> {
 
   void piecesSelected(int row, int col) {
     setState(() {
-      if (board[row][col] != null) {
+      if(selectedPiece == null && board[row][col] != null) {
         selectedPiece = board[row][col];
         selectedRow = row;
         selectedCol = col;
+      }
+
+      else if(board[row][col] != null && board[row][col]!.isWhite == selectedPiece!.isWhite) {
+        selectedPiece = board[row][col];
+        selectedRow = row;
+        selectedCol = col;
+      }
+
+      else if(selectedPiece != null && validMoves.any((element) => element[0] == row && element[1] == col)) {
+        movePiece(row, col);
       }
 
       validMoves =
@@ -137,7 +147,11 @@ class _GameBoardState extends State<GameBoard> {
   List<List<int>> calculateRawValidMoves(int row, int col, ChessPiece? piece) {
     List<List<int>> candidateMoves = [];
 
-    int direction = piece!.isWhite ? -1 : 1;
+    if(piece==null) {
+      return candidateMoves;
+    }
+
+    int direction = piece.isWhite ? -1 : 1;
 
     switch (piece.type) {
       case ChessPieceType.pawn:
@@ -305,7 +319,7 @@ class _GameBoardState extends State<GameBoard> {
               candidateMoves.add([newRow, newCol]);
             }
             continue;
-          } 
+          }
           candidateMoves.add([newRow, newCol]);
         }
 
@@ -313,6 +327,18 @@ class _GameBoardState extends State<GameBoard> {
       default:
     }
     return candidateMoves;
+  }
+
+  void movePiece(int newRow, int newCol) {
+    board[newRow][newCol] = selectedPiece;
+    board[selectedRow][selectedCol] = null;
+
+    setState(() {
+      selectedPiece = null;
+      selectedRow = -1;
+      selectedCol = -1;
+      validMoves = [];
+    });
   }
 
   @override
